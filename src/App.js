@@ -72,18 +72,14 @@ class App extends React.Component {
         })
     }
 
-    /*
-    // 編輯
-    editTodo(e) {
-        console.log(e)
-        //const {todos} = this.state;
-        
-        //const newText = e.target
 
-        
+    // 編輯
+    saveEditedValue(id, value) {
+        const {todos} = this.state;
+
         let newTodos = todos.map((item) => {
             if(item.id === id){
-                item.text = newText;
+                item.text = value;
             }
             return item;
         });
@@ -91,19 +87,20 @@ class App extends React.Component {
         this.setState({
             todos: newTodos,
         })
-        
     }
-    */
+    
 
 
     render () {
         let {todos} = this.state;
-        console.log(todos)
+        
+        //console.log(todos)
 
         return (
             <div className="container">
                 <div className="title">
                     <h1>Todo list</h1>
+                    <p>在待辦事項上點擊兩下滑鼠可以編輯</p>
                 </div>
                 <div className="input-group mb-3">
                     <input type="text" className="form-control" id="input-add" placeholder="I'm gonna do..."
@@ -120,12 +117,10 @@ class App extends React.Component {
                     {todos.map((todo) =>
                         <Todo
                             key={todo.id}
-                            id={todo.id}
-                            text={todo.text}
-                            completed={todo.completed}
+                            todo={todo}
                             remove={(id) => this.deleteTodo(id)}
                             checkToggle={(id) => this.checkTodoToggle(id)}
-                            edit={(e) => this.editTodo(e)}
+                            saveEditedValue={(id, value) => this.saveEditedValue(id, value)}
                         />
                     )}
                 </ul>
