@@ -59,17 +59,23 @@ class Todo extends React.Component {
         //console.log(this.state)
 
         return (
-            <li className={(todo.completed) ? "list-group-item list-row done" : "list-group-item list-row"}>
+            <li className={ "list-group-item list-row " + (todo.completed ? "done" : "") }>
                 <div className="btn-circle checkbox" onClick={() => this.checkTodoToggle()} >✓</div>
-                <div className="list-text" onDoubleClick={() => this.showEditForm()}>
-                    {(editing) ? '' : todo.text}
-                    <div className={(editing) ? "input-group" : "input-group hidden"}>
-                        <input type="text" className="form-control" placeholder={todo.text} value={this.state.newText} onChange={(e) => this.getNewText(e)}/>
-                        <div className="input-group-append" id="button-addon4">
-                            <button className="btn btn-outline-secondary" type="button" onClick={() => this.showEditForm()}>取消</button>
-                            <button className="btn btn-outline-secondary" type="button" onClick={() => this.saveEditedValue()}>完成編輯</button>
+                <div className="list-text__container" onDoubleClick={() => this.showEditForm()}>
+                    { 
+                        !editing && <span className="list-text">{ todo.text }</span> 
+                    }
+                    {
+                        editing && 
+                        <div className={"input-group"}>
+                            <input type="text" className="form-control" placeholder={todo.text} value={this.state.newText} onChange={(e) => this.getNewText(e)}/>
+                            <div className="input-group-append">
+                                <button className="btn btn-outline-secondary" type="button" onClick={() => this.showEditForm()}>取消</button>
+                                <button className="btn btn-outline-secondary" type="button" onClick={() => this.saveEditedValue()}>完成編輯</button>
+                            </div>
                         </div>
-                    </div>
+                    }
+                    
                 </div>
                 <div className="btn-circle delete" onClick={() => this.deleteTodo()} >✕</div>
             </li>

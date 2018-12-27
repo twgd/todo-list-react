@@ -1,12 +1,23 @@
-.title {
-	color: #495057;
-	margin-bottom: 30px;
-	text-align: center;
-}
 .container {
 	margin: 30px auto;
 	width: 500px;
 	padding: 20px;
+}
+
+.header__container {
+	margin-bottom: 30px;
+	text-align: center;
+}
+
+.header__site-title {
+	color: #495057;
+	font-size: 64px;
+	font-weight: 500;
+}
+
+.header__site-description {
+	color: #929292;
+	font-size: 16px;
 }
 
 .list-row {
@@ -41,7 +52,7 @@
 	border: none;
 }
 
-.list-text {
+.list-text__container {
 	margin: 0 15px;
 	padding: 3px 0;
 	width: calc(100% - 90px);
@@ -62,10 +73,6 @@
 	color: white;
 }
 
-.hidden {
-	display: none;
-}
-
 .done {
 	background: #d0d0d050;
 }
@@ -80,9 +87,6 @@
 	border: none;
 }
 
-.edit .list-text{
-	border-bottom: 2px solid #9E9E9E;
-}
 
 .footer {
 	font-size: 10px;

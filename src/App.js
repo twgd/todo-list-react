@@ -7,9 +7,9 @@ class App extends React.Component {
 
         this.state = {
             todos: [
-                {id: 1, text: '結衣超可愛', completed: false},
-                {id: 2, text: '顆顆', completed: true},
-                {id: 3, text: '嘻嘻', completed: false},
+                {id: 1, text: 'tip：點文字兩下可以編輯', completed: false},
+                {id: 2, text: '已完成 顆顆', completed: true},
+                {id: 3, text: '(*´∀`)~♥ ガッキー', completed: false},
             ],
             newId: 4,
             newText: '',
@@ -98,10 +98,10 @@ class App extends React.Component {
 
         return (
             <div className="container">
-                <div className="title">
-                    <h1>Todo list</h1>
-                    <p>在待辦事項上點擊兩下滑鼠可以編輯</p>
-                </div>
+                <header className="header__container">
+                    <h1 className="header__site-title">Todo list</h1>
+                    <p className="header__site-description">馬上 記下 想要做的任何事</p>
+                </header>
                 <div className="input-group mb-3">
                     <input type="text" className="form-control" id="input-add" placeholder="I'm gonna do..."
                         value={this.state.newText}
